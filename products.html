@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PawParadise Pet Shop - Products</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <nav class="navbar">
+        <a href="index.html" class="logo">Paw<span>Paradise</span></a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html" class="active">Shop</a></li>
+          <li><a href="articles.html">Articles</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="cart.html" class="cart-icon"><i class="fas fa-shopping-cart"></i> <span class="cart-count">3</span></a></li>
+          <li><a href="#" class="btn btn-secondary"><i class="fas fa-user"></i> Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Products Page -->
+  <section class="products">
+    <div class="container">
+      <div class="section-title">
+        <h2>Our Products</h2>
+        <p>Find everything you need for your pets</p>
+      </div>
+      
+      <div class="product-filters" style="display: flex; justify-content: space-between; margin-bottom: 30px; align-items: center;">
+        <div class="filter-group">
+          <span style="margin-right: 10px; font-weight: bold;">Filter by:</span>
+          <select style="padding: 10px; border-radius: 5px; border: 1px solid #ddd; margin-right: 10px;">
+            <option>Category</option>
+            <option>Dog</option>
+            <option>Cat</option>
+            <option>Bird</option>
+            <option>Fish</option>
+            <option>Small Animal</option>
+          </select>
+          <select style="padding: 10px; border-radius: 5px; border: 1px solid #ddd;">
+            <option>Price</option>
+            <option>Under $10</option>
+            <option>$10 - $25</option>
+            <option>$25 - $50</option>
+            <option>Over $50</option>
+          </select>
+        </div>
+        <div class="sort-group">
+          <span style="margin-right: 10px; font-weight: bold;">Sort by:</span>
+          <select style="padding: 10px; border-radius: 5px; border: 1px solid #ddd;">
+            <option>Featured</option>
+            <option>Price: Low to High</option>
+            <option>Price: High to Low</option>
+            <option>Customer Rating</option>
+            <option>Newest</option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-img">
+            <img src="https://images.unsplash.com/photo-1589927986089-35812388d1f4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Dog Food">
+          </div>
+          <div class="product-info">
+            <h3>Premium Dog Food</h3>
+            <div class="product-price">$24.99</div>
+            <div class="product-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+            <a href="product-detail.html" class="btn btn-primary">View Details</a>
+          </div>
+        </div>
+        
+        <div class="product-card">
+          <div class="product-img">
+            <img src="https://images.unsplash.com/photo-1591769225440-811ad7d6eab2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Cat Toy">
+          </div>
+          <div class="product-info">
+            <h3>Interactive Cat Toy</h3>
+            <div class="product-price">$12.99</div>
+            <div class="product-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <a href="product-detail.html" class="btn btn-primary">View Details</a>
+          </div>
+        </div>
+        
+        <div class="product-card">
+          <div class="product-img">
+            <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Bird Cage">
+          </div>
+          <div class="product-info">
+            <h3>Large Bird Cage</h3>
+            <div class="product-price">$89.99</div>
+            <div class="product-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+            <a href="product-detail.html" class="btn btn-primary">View Details</a>
+          </div>
+        </div>
+        
+        <div class="product-card">
+          <div class="product-img">
+            <img src="https://images.unsplash.com/photo-1591946614720-90a587da4a36?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Fish Tank">
+          </div>
+          <div class="product-info">
+            <h3>Aquarium Starter Kit</h3>
+            <div class="product-price">$129.99</div>
+            <div class="product-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <i class="far fa-star"></i>
+            </div>
+            <a href="product-detail.html" class="btn btn-primary">View Details</a>
+          </div>
+        </div>
+        
+        <div class="product-card">
+          <div class="product-img">
+            <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Dog Leash">
+          </div>
+          <div class="product-info">
+            <h3>Premium Dog Leash</h3>
+            <div class="product-price">$19.99</div>
+            <div class="product-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+            <a href="product-detail.html" class="btn btn-primary">View Details</a>
+          </div>
+        </div>
+        
+        <div class="product-card">
+          <div class="product-img">
+            <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Cat Bed">
+          </div>
+          <div class="product-info">
+            <h3>Plush Cat Bed</h3>
+            <div class="product-price">$34.99</div>
+            <div class="product-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+            <a href="product-detail.html" class="btn btn-primary">View Details</a>
+          </div>
+        </div>
+        
+        <div class="product-card">
+          <div class="product-img">
+            <img src="https://images.unsplash.com/photo-1550853024-fae8cd4be47f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Dog Treats">
+          </div>
+          <div class="product-info">
+            <h3>Organic Dog Treats</h3>
+            <div class="product-price">$14.99</div>
+            <div class="product-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <a href="product-detail.html" class="btn btn-primary">View Details</a>
+          </div>
+        </div>
+        
+        <div class="product-card">
+          <div class="product-img">
+            <img src="https://images.unsplash.com/photo-1588943211346-0908a1fb0b01?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Pet Grooming Kit">
+          </div>
+          <div class="product-info">
+            <h3>Pet Grooming Kit</h3>
+            <div class="product-price">$29.99</div>
+            <div class="product-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+            <a href="product-detail.html" class="btn btn-primary">View Details</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="pagination" style="text-align: center; margin-top: 40px;">
+        <a href="#" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Previous</a>
+        <a href="#" class="btn btn-primary" style="margin: 0 10px;">1</a>
+        <a href="#" class="btn btn-secondary">2</a>
+        <a href="#" class="btn btn-secondary">3</a>
+        <a href="#" class="btn btn-secondary">Next <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>PawParadise</h3>
+          <p>Your one-stop shop for all pet needs. We provide high quality products and expert advice to keep your pets happy and healthy.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-pinterest"></i></a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Shop</a></li>
+            <li><a href="articles.html">Articles</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Customer Service</h3>
+          <ul class="footer-links">
+            <li><a href="#">My Account</a></li>
+            <li><a href="#">Order Tracking</a></li>
+            <li><a href="#">Wishlist</a></li>
+            <li><a href="#">Returns</a></li>
+            <li><a href="#">FAQs</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Newsletter</h3>
+          <p>Subscribe to our newsletter for the latest updates and offers.</p>
+          <form class="newsletter">
+            <input type="email" placeholder="Your email address">
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2023 PawParadise Pet Shop. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
