@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Transactions | PawParadise Admin</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/admin.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <!-- Admin Header -->
+  <header class="admin-header">
+    <div class="container">
+      <nav class="admin-navbar">
+        <a href="dashboard.html" class="admin-logo">Paw<span>Paradise</span> Admin</a>
+        <ul class="admin-nav-links">
+          <li><a href="#"><i class="fas fa-bell"></i></a></li>
+          <li><a href="#"><i class="fas fa-envelope"></i></a></li>
+          <li><a href="#"><i class="fas fa-user-circle"></i> Admin</a></li>
+          <li><a href="#"><i class="fas fa-sign-out-alt"></i></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Admin Container -->
+  <div class="admin-container">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+      <ul class="admin-sidebar-menu">
+        <li><a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+        <li><a href="manage-products.html"><i class="fas fa-paw"></i> Products</a></li>
+        <li><a href="manage-articles.html"><i class="fas fa-newspaper"></i> Articles</a></li>
+        <li><a href="manage-users.html"><i class="fas fa-users"></i> Users</a></li>
+        <li><a href="manage-transactions.html" class="active"><i class="fas fa-receipt"></i> Transactions</a></li>
+        <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+      <div class="admin-card">
+        <div class="admin-card-header">
+          <h3 class="admin-card-title">Transactions</h3>
+          <div>
+            <select style="padding: 8px 15px; border: 1px solid #ddd; border-radius: 5px; margin-right: 10px;">
+              <option>All Status</option>
+              <option>Completed</option>
+              <option>Processing</option>
+              <option>Shipped</option>
+              <option>Cancelled</option>
+            </select>
+            <input type="text" placeholder="Search transactions..." style="padding: 8px 15px; border: 1px solid #ddd; border-radius: 5px; margin-right: 10px;">
+          </div>
+        </div>
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Order ID</th>
+              <th>Customer</th>
+              <th>Date</th>
+              <th>Amount</th>
+              <th>Payment</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>#PP-1001</td>
+              <td>John Smith</td>
+              <td>June 15, 2023</td>
+              <td>$86.21</td>
+              <td>Credit Card</td>
+              <td><span style="color: var(--success);">Completed</span></td>
+              <td class="actions">
+                <a href="#" class="btn btn-primary btn-sm">View</a>
+                <a href="#" class="btn btn-secondary btn-sm">Invoice</a>
+              </td>
+            </tr>
+            <tr>
+              <td>#PP-1002</td>
+              <td>Sarah Johnson</td>
+              <td>June 14, 2023</td>
+              <td>$124.99</td>
+              <td>PayPal</td>
+              <td><span style="color: var(--success);">Completed</span></td>
+              <td class="actions">
+                <a href="#" class="btn btn-primary btn-sm">View</a>
+                <a href="#" class="btn btn-secondary btn-sm">Invoice</a>
+              </td>
+            </tr>
+            <tr>
+              <td>#PP-1003</td>
+              <td>Michael Brown</td>
+              <td>June 14, 2023</td>
+              <td>$45.50</td>
+              <td>Credit Card</td>
+              <td><span style="color: var(--warning);">Processing</span></td>
+              <td class="actions">
+                <a href="#" class="btn btn-primary btn-sm">View</a>
+                <a href="#" class="btn btn-secondary btn-sm">Invoice</a>
+              </td>
+            </tr>
+            <tr>
+              <td>#PP-1004</td>
+              <td>Emily Davis</td>
+              <td>June 13, 2023</td>
+              <td>$67.89</td>
+              <td>Credit Card</td>
+              <td><span style="color: var(--info);">Shipped</span></td>
+              <td class="actions">
+                <a href="#" class="btn btn-primary btn-sm">View</a>
+                <a href="#" class="btn btn-secondary btn-sm">Invoice</a>
+              </td>
+            </tr>
+            <tr>
+              <td>#PP-1005</td>
+              <td>Robert Wilson</td>
+              <td>June 12, 2023</td>
+              <td>$92.75</td>
+              <td>PayPal</td>
+              <td><span style="color: var(--danger);">Cancelled</span></td>
+              <td class="actions">
+                <a href="#" class="btn btn-primary btn-sm">View</a>
+                <a href="#" class="btn btn-secondary btn-sm">Invoice</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <div class="pagination" style="margin-top: 20px; text-align: center;">
+          <a href="#" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Previous</a>
+          <a href="#" class="btn btn-primary" style="margin: 0 10px;">1</a>
+          <a href="#" class="btn btn-secondary">2</a>
+          <a href="#" class="btn btn-secondary">3</a>
+          <a href="#" class="btn btn-secondary">Next <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

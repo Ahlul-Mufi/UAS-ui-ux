@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Articles | PawParadise Admin</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/admin.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <!-- Admin Header -->
+  <header class="admin-header">
+    <div class="container">
+      <nav class="admin-navbar">
+        <a href="dashboard.html" class="admin-logo">Paw<span>Paradise</span> Admin</a>
+        <ul class="admin-nav-links">
+          <li><a href="#"><i class="fas fa-bell"></i></a></li>
+          <li><a href="#"><i class="fas fa-envelope"></i></a></li>
+          <li><a href="#"><i class="fas fa-user-circle"></i> Admin</a></li>
+          <li><a href="#"><i class="fas fa-sign-out-alt"></i></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Admin Container -->
+  <div class="admin-container">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+      <ul class="admin-sidebar-menu">
+        <li><a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+        <li><a href="manage-products.html"><i class="fas fa-paw"></i> Products</a></li>
+        <li><a href="manage-articles.html" class="active"><i class="fas fa-newspaper"></i> Articles</a></li>
+        <li><a href="manage-users.html"><i class="fas fa-users"></i> Users</a></li>
+        <li><a href="manage-transactions.html"><i class="fas fa-receipt"></i> Transactions</a></li>
+        <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+      <div class="admin-card">
+        <div class="admin-card-header">
+          <h3 class="admin-card-title">Articles</h3>
+          <a href="add-article.html" class="btn btn-primary">Add New</a>
+        </div>
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Author</th>
+              <th>Date</th>
+              <th>Views</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>10 Essential Dog Training Tips</td>
+              <td>John Doe</td>
+              <td>June 15, 2023</td>
+              <td>1,245</td>
+              <td><span style="color: var(--success);">Published</span></td>
+              <td class="actions">
+                <a href="#" class="btn btn-primary btn-sm">Edit</a>
+                <a href="#" class="btn btn-danger btn-sm">Delete</a>
+              </td>
+            </tr>
+            <tr>
+              <td>Understanding Your Cat's Behavior</td>
+              <td>Jane Smith</td>
+              <td>May 28, 2023</td>
+              <td>987</td>
+              <td><span style="color: var(--success);">Published</span></td>
+              <td class="actions">
+                <a href="#" class="btn btn-primary btn-sm">Edit</a>
+                <a href="#" class="btn btn-danger btn-sm">Delete</a>
+              </td>
+            </tr>
+            <tr>
+              <td>The Ultimate Guide to Pet Nutrition</td>
+              <td>Dr. Sarah Johnson</td>
+              <td>April 10, 2023</td>
+              <td>1,532</td>
+              <td><span style="color: var(--success);">Published</span></td>
+              <td class="actions">
+                <a href="#" class="btn btn-primary btn-sm">Edit</a>
+                <a href="#" class="btn btn-danger btn-sm">Delete</a>
+              </td>
+            </tr>
+            <tr>
+              <td>Essential Pet Grooming Tips</td>
+              <td>Michael Brown</td>
+              <td>March 22, 2023</td>
+              <td>756</td>
+              <td><span style="color: var(--success);">Published</span></td>
+              <td class="actions">
+                <a href="#" class="btn btn-primary btn-sm">Edit</a>
+                <a href="#" class="btn btn-danger btn-sm">Delete</a>
+              </td>
+            </tr>
+            <tr>
+              <td>How to Choose the Right Pet for Your Family</td>
+              <td>Emily Davis</td>
+              <td>February 15, 2023</td>
+              <td>1,089</td>
+              <td><span style="color: var(--warning);">Draft</span></td>
+              <td class="actions">
+                <a href="#" class="btn btn-primary btn-sm">Edit</a>
+                <a href="#" class="btn btn-danger btn-sm">Delete</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <div class="pagination" style="margin-top: 20px; text-align: center;">
+          <a href="#" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Previous</a>
+          <a href="#" class="btn btn-primary" style="margin: 0 10px;">1</a>
+          <a href="#" class="btn btn-secondary">2</a>
+          <a href="#" class="btn btn-secondary">3</a>
+          <a href="#" class="btn btn-secondary">Next <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
