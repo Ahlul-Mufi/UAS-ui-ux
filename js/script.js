@@ -1,4 +1,7 @@
-// Data Produk
+/**
+ * Data Produk
+ * Array berisi informasi produk yang tersedia di toko
+ */
 const products = [
   {
     name: "Premium food",
@@ -13,7 +16,7 @@ const products = [
     price: 12.99,
     image: "https://plus.unsplash.com/premium_photo-1664371206022-59b8607e00ac?q=80&w=1530&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     category: "cat",
-    description: "Mainan interaktif yang merangsang insting berburu kucing Anda, memberikan hiburan selama berjam-jam.",
+    description: "Mainan interaktif yang merangsang instink berburu kucing Anda, memberikan hiburan selama berjam-jam.",
     rating: [1, 1, 1, 1, 1]
   },
   {
@@ -66,7 +69,11 @@ const products = [
   }
 ];
 
-// Fungsi untuk memuat partial HTML
+/**
+ * Fungsi untuk memuat partial HTML dari file eksternal
+ * @param {string} elementId - ID elemen HTML tempat partial dimuat
+ * @param {string} url - URL file partial
+ */
 async function loadPartial(elementId, url) {
   try {
     const response = await fetch(url);
@@ -74,21 +81,24 @@ async function loadPartial(elementId, url) {
     const content = await response.text();
     document.getElementById(elementId).innerHTML = content;
 
-    // Inisialisasi menu hamburger, keranjang, filter, dan detail produk setelah navbar dimuat
+    // Inisialisasi berbagai fungsi berdasarkan halaman yang dimuat
     if (elementId === 'navbar') {
       initializeHamburgerMenu();
       updateCartCount();
       highlightActiveLink();
     }
-    // Render keranjang jika di halaman keranjang
     if (window.location.pathname.includes('cart.html')) {
       renderCart();
     }
-    // Inisialisasi filter jika di halaman produk
+    if (window.location.pathname.includes('pembayaran.html')) {
+      renderCheckout();
+    }
+    if (window.location.pathname.includes('history.html')) {
+      renderOrderHistory();
+    }
     if (window.location.pathname.includes('products.html')) {
       initializeFilters();
     }
-    // Inisialisasi detail produk jika di halaman product-detail
     if (window.location.pathname.includes('product-detail.html')) {
       initializeProductDetail();
     }
@@ -98,7 +108,9 @@ async function loadPartial(elementId, url) {
   }
 }
 
-// Fungsi untuk inisialisasi menu hamburger
+/**
+ * Fungsi untuk inisialisasi menu hamburger
+ */
 function initializeHamburgerMenu() {
   const hamburger = document.querySelector('.hamburger');
   const navLinks = document.querySelector('.nav-links');
@@ -113,35 +125,61 @@ function initializeHamburgerMenu() {
   }
 }
 
-// Fungsi untuk menyorot tautan aktif
+/**
+ * Fungsi untuk menyorot tautan aktif di navbar berdasarkan halaman saat ini
+ */
 function highlightActiveLink() {
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
   const navLinks = document.querySelectorAll('.nav-links a');
   navLinks.forEach(link => {
     const href = link.getAttribute('href');
+    // Sorot Home untuk index.html
+    if (href === 'index.html' && currentPage === 'index.html') {
+      link.classList.add('active');
+    }
     // Sorot Articles untuk articles.html dan article-detail.html
-    if (href === 'articles.html' && (currentPage === 'articles.html' || currentPage === 'article-detail.html')) {
+    else if (href === 'articles.html' && (currentPage === 'articles.html' || currentPage === 'article-detail.html')) {
       link.classList.add('active');
     }
-    // Sorot Shop untuk products.html dan product-detail.html
-    else if (href === 'products.html' && (currentPage === 'products.html' || currentPage === 'product-detail.html')) {
+    // Sorot Shop untuk products.html, product-detail.html, cart.html, dan pembayaran.html
+    else if (href === 'products.html' && (currentPage === 'products.html' || currentPage === 'product-detail.html' || currentPage === 'cart.html' || currentPage === 'pembayaran.html')) {
       link.classList.add('active');
     }
+    // Sorot History untuk history.html
+    else if (href === 'history.html' && currentPage === 'history.html') {
+      link.classList.add('active');
+    }
+    // Sorot tautan saat ini jika tidak ada aturan khusus
     else if (href === currentPage) {
       link.classList.add('active');
     }
   });
 }
 
-// Fungsi keranjang
+/**
+ * Fungsi untuk mengelola keranjang belanja
+ */
+
+/**
+ * Mendapatkan data keranjang dari localStorage
+ * @returns {Array} Array berisi item keranjang
+ */
 function getCart() {
   return JSON.parse(localStorage.getItem('cart')) || [];
 }
 
+/**
+ * Menyimpan data keranjang ke localStorage
+ * @param {Array} cart - Array berisi item keranjang
+ */
 function saveCart(cart) {
   localStorage.setItem('cart', JSON.stringify(cart));
 }
 
+/**
+ * Menambahkan produk ke keranjang
+ * @param {Object} product - Objek produk dengan properti name, price, dan image
+ */
 function addToCart(product) {
   const cart = getCart();
   const existingItem = cart.find(item => item.name === product.name);
@@ -154,6 +192,9 @@ function addToCart(product) {
   updateCartCount();
 }
 
+/**
+ * Memperbarui jumlah item di ikon keranjang di navbar
+ */
 function updateCartCount() {
   const cart = getCart();
   const count = cart.reduce((sum, item) => sum + item.quantity, 0);
@@ -161,7 +202,6 @@ function updateCartCount() {
   if (cartCount) {
     cartCount.textContent = count;
   } else {
-    // Tambah jumlah keranjang secara dinamis
     const cartIcon = document.querySelector('.cart-icon');
     if (cartIcon) {
       const span = document.createElement('span');
@@ -172,6 +212,9 @@ function updateCartCount() {
   }
 }
 
+/**
+ * Merender isi keranjang di halaman cart.html
+ */
 function renderCart() {
   const cart = getCart();
   const cartItemsList = document.getElementById('cart-items-list');
@@ -183,10 +226,8 @@ function renderCart() {
 
   if (!cartItemsList) return;
 
-  // Bersihkan item saat ini
   cartItemsList.innerHTML = '';
 
-  // Render item keranjang
   cart.forEach((item, index) => {
     const cartItem = document.createElement('div');
     cartItem.className = 'cart-item';
@@ -208,7 +249,6 @@ function renderCart() {
     cartItemsList.appendChild(cartItem);
   });
 
-  // Perbarui jumlah dan total
   const itemCount = cart.reduce((sum, item) => sum + item.quantity, 0);
   const subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const shipping = cart.length > 0 ? 5.99 : 0;
@@ -222,7 +262,94 @@ function renderCart() {
   cartTotal.textContent = `$${total.toFixed(2)}`;
 }
 
-// Inisialisasi filter kategori
+/**
+ * Merender ringkasan pesanan di halaman pembayaran.html
+ */
+function renderCheckout() {
+  const cart = getCart();
+  const orderItemsList = document.getElementById('order-items-list');
+  const cartSubtotal = document.getElementById('cart-subtotal');
+  const cartShipping = document.getElementById('cart-shipping');
+  const cartTax = document.getElementById('cart-tax');
+  const cartTotal = document.getElementById('cart-total');
+
+  if (!orderItemsList) return;
+
+  orderItemsList.innerHTML = '';
+
+  cart.forEach(item => {
+    const orderItem = document.createElement('div');
+    orderItem.style.marginBottom = '15px';
+    orderItem.innerHTML = `
+      <div style="display: flex; justify-content: space-between;">
+        <span>${item.name} (x${item.quantity})</span>
+        <span>$${parseFloat(item.price * item.quantity).toFixed(2)}</span>
+      </div>
+    `;
+    orderItemsList.appendChild(orderItem);
+  });
+
+  const subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const shipping = cart.length > 0 ? 5.99 : 0;
+  const tax = subtotal * 0.07;
+  const total = subtotal + shipping + tax;
+
+  cartSubtotal.textContent = `$${subtotal.toFixed(2)}`;
+  cartShipping.textContent = `$${shipping.toFixed(2)}`;
+  cartTax.textContent = `$${tax.toFixed(2)}`;
+  cartTotal.textContent = `$${total.toFixed(2)}`;
+}
+
+/**
+ * Merender riwayat pesanan di halaman history.html
+ */
+function renderOrderHistory() {
+  const orders = JSON.parse(localStorage.getItem('orders')) || [];
+  const orderHistoryList = document.getElementById('order-history-list');
+
+  if (!orderHistoryList) return;
+
+  orderHistoryList.innerHTML = '';
+
+  if (orders.length === 0) {
+    orderHistoryList.innerHTML = `
+      <p style="text-align: center; color: #666;">Belum ada pesanan.</p>
+    `;
+    return;
+  }
+
+  orders.forEach(order => {
+    const orderCard = document.createElement('div');
+    orderCard.style.backgroundColor = '#f9f9f9';
+    orderCard.style.padding = '20px';
+    orderCard.style.marginBottom = '20px';
+    orderCard.style.borderRadius = '5px';
+    orderCard.innerHTML = `
+      <h3 style="margin-bottom: 10px;">Pesanan ${order.id}</h3>
+      <p style="color: #666; margin-bottom: 10px;">Tanggal: ${new Date(order.timestamp).toLocaleString()}</p>
+      <div style="margin-bottom: 10px;">
+        <strong>Item:</strong>
+        <ul style="margin: 5px 0; padding-left: 20px;">
+          ${order.items.map(item => `<li>${item.name} (x${item.quantity}) - $${parseFloat(item.price * item.quantity).toFixed(2)}</li>`).join('')}
+        </ul>
+      </div>
+      <div style="margin-bottom: 10px;">
+        <strong>Detail Pengiriman:</strong>
+        <p style="margin: 5px 0;">Nama: ${order.shippingDetails.fullName}</p>
+        <p style="margin: 5px 0;">Email: ${order.shippingDetails.email}</p>
+        <p style="margin: 5px 0;">Telepon: ${order.shippingDetails.phone}</p>
+        <p style="margin: 5px 0;">Alamat: ${order.shippingDetails.address}</p>
+      </div>
+      <p style="margin-bottom: 10px;"><strong>Metode Pembayaran:</strong> ${order.paymentMethod === 'credit-card' ? 'Kartu Kredit' : 'PayPal'}</p>
+      <p style="margin-bottom: 10px;"><strong>Total:</strong> $${parseFloat(order.total).toFixed(2)}</p>
+    `;
+    orderHistoryList.appendChild(orderCard);
+  });
+}
+
+/**
+ * Inisialisasi filter kategori di halaman products.html
+ */
 function initializeFilters() {
   const categoryFilter = document.getElementById('category-filter');
   const productCards = document.querySelectorAll('.product-card');
@@ -242,7 +369,9 @@ function initializeFilters() {
   }
 }
 
-// Inisialisasi detail produk
+/**
+ * Inisialisasi detail produk di halaman product-detail.html
+ */
 function initializeProductDetail() {
   const urlParams = new URLSearchParams(window.location.search);
   const productId = urlParams.get('product');
@@ -284,7 +413,9 @@ function initializeProductDetail() {
   }
 }
 
-// Inisialisasi interaksi keranjang
+/**
+ * Inisialisasi interaksi keranjang di berbagai halaman
+ */
 function initializeCart() {
   // Tombol tambah ke keranjang
   document.querySelectorAll('.add-to-cart').forEach(button => {
@@ -342,9 +473,78 @@ function initializeCart() {
   }
 }
 
-// Muat navbar, footer, dan inisialisasi keranjang saat DOM siap
+/**
+ * Inisialisasi halaman checkout di pembayaran.html
+ */
+function initializeCheckout() {
+  const checkoutForm = document.getElementById('checkout-form');
+  const paymentMethods = document.querySelectorAll('input[name="payment-method"]');
+  const creditCardDetails = document.getElementById('credit-card-details');
+
+  if (!checkoutForm) return;
+
+  // Tampilkan/sembunyikan detail kartu kredit berdasarkan metode pembayaran
+  paymentMethods.forEach(method => {
+    method.addEventListener('change', () => {
+      creditCardDetails.style.display = method.value === 'credit-card' ? 'block' : 'none';
+    });
+  });
+
+  // Tangani pengiriman formulir checkout
+  checkoutForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const formData = new FormData(checkoutForm);
+    const paymentMethod = formData.get('payment-method');
+
+    // Validasi detail kartu kredit jika dipilih
+    if (paymentMethod === 'credit-card') {
+      const cardNumber = formData.get('card-number');
+      const expiryDate = formData.get('expiry-date');
+      const cvv = formData.get('cvv');
+      if (!cardNumber || !expiryDate || !cvv) {
+        alert('Harap lengkapi detail kartu kredit.');
+        return;
+      }
+    }
+
+    // Simpan detail pesanan
+    const order = {
+      id: `ORDER-${Date.now()}`,
+      items: getCart(),
+      shippingDetails: {
+        fullName: formData.get('full-name'),
+        email: formData.get('email'),
+        phone: formData.get('phone'),
+        address: formData.get('address')
+      },
+      paymentMethod: paymentMethod,
+      timestamp: new Date().toISOString(),
+      total: getCart().reduce((sum, item) => sum + item.price * item.quantity, 0) + (getCart().length > 0 ? 5.99 : 0) + (getCart().reduce((sum, item) => sum + item.price * item.quantity, 0) * 0.07)
+    };
+
+    // Simpan pesanan ke localStorage
+    const orders = JSON.parse(localStorage.getItem('orders')) || [];
+    orders.push(order);
+    localStorage.setItem('orders', JSON.stringify(orders));
+
+    // Kosongkan keranjang
+    saveCart([]);
+    updateCartCount();
+
+    // Tampilkan pesan sukses dan arahkan ke history.html
+    alert(`Pesanan ${order.id} berhasil! Terima kasih atas pembelian Anda.`);
+    window.location.href = 'history.html';
+  });
+}
+
+/**
+ * Inisialisasi aplikasi saat DOM siap
+ */
 document.addEventListener('DOMContentLoaded', () => {
   loadPartial('navbar', 'views/navbar.html');
   loadPartial('footer', 'views/footer.html');
   initializeCart();
+  if (window.location.pathname.includes('pembayaran.html')) {
+    initializeCheckout();
+  }
 });

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pembayaran | PawParadise</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <!-- Navbar Placeholder -->
+  <div id="navbar"></div>
+
+  <!-- Checkout Page -->
+  <section class="checkout-page" style="padding: 60px 0;">
+    <div class="container">
+      <div class="checkout-container" style="display: flex; gap: 40px; flex-wrap: wrap;">
+        <!-- Shipping and Payment Form -->
+        <div class="checkout-form" style="flex: 1; min-width: 300px;">
+          <h2 style="margin-bottom: 20px;">Detail Pengiriman & Pembayaran</h2>
+          <form id="checkout-form">
+            <div class="form-group" style="margin-bottom: 20px;">
+              <label for="full-name" style="display: block; margin-bottom: 5px;">Nama Lengkap</label>
+              <input type="text" id="full-name" name="full-name" placeholder="Masukkan nama lengkap" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+            </div>
+            <div class="form-group" style="margin-bottom: 20px;">
+              <label for="email" style="display: block; margin-bottom: 5px;">Email</label>
+              <input type="email" id="email" name="email" placeholder="Masukkan email" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+            </div>
+            <div class="form-group" style="margin-bottom: 20px;">
+              <label for="phone" style="display: block; margin-bottom: 5px;">Nomor Telepon</label>
+              <input type="tel" id="phone" name="phone" placeholder="Masukkan nomor telepon" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+            </div>
+            <div class="form-group" style="margin-bottom: 20px;">
+              <label for="address" style="display: block; margin-bottom: 5px;">Alamat Pengiriman</label>
+              <textarea id="address" name="address" placeholder="Masukkan alamat lengkap" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; min-height: 100px;"></textarea>
+            </div>
+            <div class="form-group" style="margin-bottom: 20px;">
+              <h3 style="margin-bottom: 10px;">Metode Pembayaran</h3>
+              <div style="display: flex; flex-direction: column; gap: 10px;">
+                <label style="display: flex; align-items: center; gap: 10px;">
+                  <input type="radio" name="payment-method" value="credit-card" required>
+                  Kartu Kredit
+                </label>
+                <label style="display: flex; align-items: center; gap: 10px;">
+                  <input type="radio" name="payment-method" value="paypal">
+                  PayPal
+                </label>
+              </div>
+            </div>
+            <div id="credit-card-details" style="display: none; margin-bottom: 20px;">
+              <div class="form-group" style="margin-bottom: 20px;">
+                <label for="card-number" style="display: block; margin-bottom: 5px;">Nomor Kartu</label>
+                <input type="text" id="card-number" name="card-number" placeholder="1234 5678 9012 3456" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+              </div>
+              <div style="display: flex; gap: 20px;">
+                <div class="form-group" style="flex: 1;">
+                  <label for="expiry-date" style="display: block; margin-bottom: 5px;">Tanggal Kadaluarsa</label>
+                  <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YY" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                </div>
+                <div class="form-group" style="flex: 1;">
+                  <label for="cvv" style="display: block; margin-bottom: 5px;">CVV</label>
+                  <input type="text" id="cvv" name="cvv" placeholder="123" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                </div>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Konfirmasi Pesanan</button>
+          </form>
+          <div style="margin-top: 20px; text-align: center;">
+            <a href="cart.html" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Kembali ke Keranjang</a>
+          </div>
+        </div>
+
+        <!-- Order Summary -->
+        <div class="cart-summary" style="flex: 1; min-width: 300px; background-color: #f9f9f9; padding: 20px; border-radius: 5px;">
+          <h2>Ringkasan Pesanan</h2>
+          <div id="order-items-list" style="margin-bottom: 20px;"></div>
+          <div class="summary-row">
+            <span>Subtotal</span>
+            <span id="cart-subtotal">$0.00</span>
+          </div>
+          <div class="summary-row">
+            <span>Ongkir</span>
+            <span id="cart-shipping">$0.00</span>
+          </div>
+          <div class="summary-row">
+            <span>Pajak</span>
+            <span id="cart-tax">$0.00</span>
+          </div>
+          <div class="summary-total">
+            <span>Total</span>
+            <span id="cart-total">$0.00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Placeholder -->
+  <div id="footer"></div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
