@@ -141,8 +141,12 @@ function highlightActiveLink() {
     else if (href === 'articles.html' && (currentPage === 'articles.html' || currentPage === 'article-detail.html')) {
       link.classList.add('active');
     }
-    // Sorot Shop untuk products.html, product-detail.html, cart.html, dan pembayaran.html
-    else if (href === 'products.html' && (currentPage === 'products.html' || currentPage === 'product-detail.html' || currentPage === 'cart.html' || currentPage === 'pembayaran.html')) {
+    // Sorot Shop untuk products.html dan product-detail.html
+    else if (href === 'products.html' && (currentPage === 'products.html' || currentPage === 'product-detail.html')) {
+      link.classList.add('active');
+    }
+    // Sorot Cart untuk cart.html dan pembayaran.html
+    else if (href === 'cart.html' && (currentPage === 'cart.html' || currentPage === 'pembayaran.html')) {
       link.classList.add('active');
     }
     // Sorot History untuk history.html
