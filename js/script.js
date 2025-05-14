@@ -322,7 +322,7 @@ function renderOrderHistory() {
     return;
   }
 
-  orders.forEach(order => {
+  orders.forEach((order, index) => {
     const orderCard = document.createElement('div');
     orderCard.style.backgroundColor = '#f9f9f9';
     orderCard.style.padding = '20px';
@@ -346,8 +346,42 @@ function renderOrderHistory() {
       </div>
       <p style="margin-bottom: 10px;"><strong>Metode Pembayaran:</strong> ${order.paymentMethod === 'credit-card' ? 'Kartu Kredit' : 'PayPal'}</p>
       <p style="margin-bottom: 10px;"><strong>Total:</strong> $${parseFloat(order.total).toFixed(2)}</p>
+      <div style="display: flex; gap: 10px;">
+        <button class="btn btn-danger delete-order" data-index="${index}"><i class="fas fa-trash"></i> Hapus</button>
+        <button class="btn btn-primary reorder" data-index="${index}"><i class="fas fa-shopping-cart"></i> Beli Lagi</button>
+      </div>
     `;
     orderHistoryList.appendChild(orderCard);
+  });
+
+  // Event listener untuk tombol Hapus
+  document.querySelectorAll('.delete-order').forEach(button => {
+    button.addEventListener('click', (e) => {
+      const index = e.target.closest('.delete-order').dataset.index;
+      const orders = JSON.parse(localStorage.getItem('orders')) || [];
+      orders.splice(index, 1);
+      localStorage.setItem('orders', JSON.stringify(orders));
+      renderOrderHistory();
+    });
+  });
+
+  // Event listener untuk tombol Beli Lagi
+  document.querySelectorAll('.reorder').forEach(button => {
+    button.addEventListener('click', (e) => {
+      const index = e.target.closest('.reorder').dataset.index;
+      const orders = JSON.parse(localStorage.getItem('orders')) || [];
+      const order = orders[index];
+      order.items.forEach(item => {
+        for (let i = 0; i < item.quantity; i++) {
+          addToCart({
+            name: item.name,
+            price: item.price,
+            image: item.image
+          });
+        }
+      });
+      window.location.href = 'cart.html';
+    });
   });
 }
 
@@ -541,9 +575,7 @@ function initializeCheckout() {
   });
 }
 
-/**
- * Inisialisasi aplikasi saat DOM siap
- */
+
 document.addEventListener('DOMContentLoaded', () => {
   loadPartial('navbar', 'views/navbar.html');
   loadPartial('footer', 'views/footer.html');
