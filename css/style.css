@@ -14,7 +14,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
@@ -160,7 +160,8 @@ header {
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1594149929911-78975a43d4f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://images.unsplash.com/photo-1594149929911-78975a43d4f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80");
   background-size: cover;
   background-position: center;
   height: 500px;
@@ -893,15 +894,15 @@ footer {
   .feature-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .footer-content {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .product-detail-container {
     grid-template-columns: 1fr;
   }
-  
+
   .cart-container {
     grid-template-columns: 1fr;
   }
@@ -942,13 +943,14 @@ footer {
   .article-card-horizontal {
     grid-template-columns: 1fr;
   }
-  
+
   .cart-item {
     grid-template-columns: 80px 1fr;
     grid-template-rows: auto auto;
   }
-  
-  .cart-item-price, .cart-item-quantity {
+
+  .cart-item-price,
+  .cart-item-quantity {
     grid-column: span 2;
   }
 
@@ -970,11 +972,11 @@ footer {
   .hero h1 {
     font-size: 36px;
   }
-  
+
   .hero p {
     font-size: 16px;
   }
-  
+
   .footer-content {
     grid-template-columns: 1fr;
   }

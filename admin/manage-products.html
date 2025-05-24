@@ -1,157 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Manage Products | PawParadise Admin</title>
-  <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="../css/admin.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-<body>
-  <!-- Admin Header -->
-  <header class="admin-header">
-    <div class="container">
-      <nav class="admin-navbar">
-        <a href="dashboard.html" class="admin-logo">Paw<span>Paradise</span> Admin</a>
-        <ul class="admin-nav-links">
-          <li><a href="#"><i class="fas fa-bell"></i></a></li>
-          <li><a href="#"><i class="fas fa-envelope"></i></a></li>
-          <li><a href="#"><i class="fas fa-user-circle"></i> Admin</a></li>
-          <li><a href="#"><i class="fas fa-sign-out-alt"></i></a></li>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manage Products - PawParadise Admin</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link href="../css/admin.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Admin Header -->
+    <header class="admin-header">
+      <div class="container">
+        <nav class="admin-navbar">
+          <a href="dashboard.html" class="admin-logo"
+            >Paw<span>Paradise</span> Admin</a
+          >
+          <ul class="admin-nav-links">
+            <li>
+              <a href="#" aria-label="Notifications"
+                ><i class="fas fa-bell"></i
+              ></a>
+            </li>
+            <li>
+              <a href="#" aria-label="Messages"
+                ><i class="fas fa-envelope"></i
+              ></a>
+            </li>
+            <li>
+              <a href="#" id="btn-logout" aria-label="Logout"
+                ><i class="fas fa-sign-out-alt"></i> Logout</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Admin Container -->
+    <div class="admin-container">
+      <!-- Sidebar -->
+      <aside class="admin-sidebar">
+        <ul class="admin-sidebar-menu">
+          <li>
+            <a href="dashboard.html"
+              ><i class="fas fa-tachometer-alt"></i> Dashboard</a
+            >
+          </li>
+          <li>
+            <a href="manage-products.html" class="active"
+              ><i class="fas fa-paw"></i> Products</a
+            >
+          </li>
+          <li>
+            <a href="manage-articles.html"
+              ><i class="fas fa-newspaper"></i> Articles</a
+            >
+          </li>
+          <li>
+            <a href="manage-users.html"><i class="fas fa-users"></i> Users</a>
+          </li>
+          <li>
+            <a href="manage-transactions.html"
+              ><i class="fas fa-receipt"></i> Transactions</a
+            >
+          </li>
         </ul>
-      </nav>
-    </div>
-  </header>
+      </aside>
 
-  <!-- Admin Container -->
-  <div class="admin-container">
-    <!-- Sidebar -->
-    <aside class="admin-sidebar">
-      <ul class="admin-sidebar-menu">
-        <li><a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
-        <li><a href="manage-products.html" class="active"><i class="fas fa-paw"></i> Products</a></li>
-        <li><a href="manage-articles.html"><i class="fas fa-newspaper"></i> Articles</a></li>
-        <li><a href="manage-users.html"><i class="fas fa-users"></i> Users</a></li>
-        <li><a href="manage-transactions.html"><i class="fas fa-receipt"></i> Transactions</a></li>
-        <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
-      </ul>
-    </aside>
+      <!-- Main Content -->
+      <main class="admin-main">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h1>Manage Products</h1>
+          <a href="add-product.html" class="btn btn-primary">Add New Product</a>
+        </div>
 
-    <!-- Main Content -->
-    <main class="admin-main">
-      <div class="admin-card">
-        <div class="admin-card-header">
-          <h3 class="admin-card-title">Products</h3>
-          <div>
-            <input type="text" placeholder="Search products..." style="padding: 8px 15px; border: 1px solid #ddd; border-radius: 5px; margin-right: 10px;">
-            <a href="add-product.html" class="btn btn-primary">Add New</a>
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <div
+              class="input-group"
+              style="max-width: 300px; align-items: center"
+            >
+              <input
+                type="text"
+                class="form-control admin-form-control"
+                placeholder="Search products..."
+                aria-label="Search products"
+                style="height: 38px; padding: 6px 12px"
+              />
+              <button
+                class="btn btn-primary"
+                type="button"
+                aria-label="Search"
+                style="height: 38px"
+              >
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="admin-table" id="products-table">
+              <thead>
+                <tr>
+                  <th>Image</th>
+                  <th>Name</th>
+                  <th>Price</th>
+                  <th>Stock</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Filled by JavaScript -->
+              </tbody>
+            </table>
+          </div>
+
+          <div class="d-flex justify-content-between align-items-center mt-3">
+            <div>Showing 1 to 5 of 10 entries</div>
+            <nav aria-label="Table pagination">
+              <ul class="pagination mb-0">
+                <li class="page-item disabled">
+                  <a class="page-link" href="#" aria-label="Previous page"
+                    >Previous</a
+                  >
+                </li>
+                <li class="page-item active">
+                  <a class="page-link" href="#" aria-label="Page 1">1</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="#" aria-label="Page 2">2</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="#" aria-label="Next page">Next</a>
+                </li>
+              </ul>
+            </nav>
           </div>
         </div>
-        <table class="admin-table">
-          <thead>
-            <tr>
-              <th>Product</th>
-              <th>Category</th>
-              <th>Price</th>
-              <th>Stock</th>
-              <th>Status</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <div style="display: flex; align-items: center;">
-                  <img src="https://images.unsplash.com/photo-1589927986089-35812388d1f4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Dog Food" style="width: 50px; height: 50px; object-fit: cover; border-radius: 5px; margin-right: 10px;">
-                  Premium Dog Food
-                </div>
-              </td>
-              <td>Dog Food</td>
-              <td>$24.99</td>
-              <td>156</td>
-              <td><span style="color: var(--success);">In Stock</span></td>
-              <td class="actions">
-                <a href="#" class="btn btn-primary btn-sm">Edit</a>
-                <a href="#" class="btn btn-danger btn-sm">Delete</a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div style="display: flex; align-items: center;">
-                  <img src="https://plus.unsplash.com/premium_photo-1664371206022-59b8607e00ac?q=80&w=1530&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Cat Toy" style="width: 50px; height: 50px; object-fit: cover; border-radius: 5px; margin-right: 10px;">
-                  Interactive Cat Toy
-                </div>
-              </td>
-              <td>Cat Toys</td>
-              <td>$12.99</td>
-              <td>89</td>
-              <td><span style="color: var(--success);">In Stock</span></td>
-              <td class="actions">
-                <a href="#" class="btn btn-primary btn-sm">Edit</a>
-                <a href="#" class="btn btn-danger btn-sm">Delete</a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div style="display: flex; align-items: center;">
-                  <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Bird Cage" style="width: 50px; height: 50px; object-fit: cover; border-radius: 5px; margin-right: 10px;">
-                  Large Bird Cage
-                </div>
-              </td>
-              <td>Bird Supplies</td>
-              <td>$89.99</td>
-              <td>23</td>
-              <td><span style="color: var(--warning);">Low Stock</span></td>
-              <td class="actions">
-                <a href="#" class="btn btn-primary btn-sm">Edit</a>
-                <a href="#" class="btn btn-danger btn-sm">Delete</a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div style="display: flex; align-items: center;">
-                  <img src="https://images.unsplash.com/photo-1591946614720-90a587da4a36?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Fish Tank" style="width: 50px; height: 50px; object-fit: cover; border-radius: 5px; margin-right: 10px;">
-                  Aquarium Starter Kit
-                </div>
-              </td>
-              <td>Fish Supplies</td>
-              <td>$129.99</td>
-              <td>17</td>
-              <td><span style="color: var(--warning);">Low Stock</span></td>
-              <td class="actions">
-                <a href="#" class="btn btn-primary btn-sm">Edit</a>
-                <a href="#" class="btn btn-danger btn-sm">Delete</a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div style="display: flex; align-items: center;">
-                  <img src="https://images.unsplash.com/photo-1550853024-fae8cd4be47f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Dog Treats" style="width: 50px; height: 50px; object-fit: cover; border-radius: 5px; margin-right: 10px;">
-                  Organic Dog Treats
-                </div>
-              </td>
-              <td>Dog Treats</td>
-              <td>$14.99</td>
-              <td>0</td>
-              <td><span style="color: var(--danger);">Out of Stock</span></td>
-              <td class="actions">
-                <a href="#" class="btn btn-primary btn-sm">Edit</a>
-                <a href="#" class="btn btn-danger btn-sm">Delete</a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        
-        <div class="pagination" style="margin-top: 20px; text-align: center;">
-          <a href="#" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Previous</a>
-          <a href="#" class="btn btn-primary" style="margin: 0 10px;">1</a>
-          <a href="#" class="btn btn-secondary">2</a>
-          <a href="#" class="btn btn-secondary">3</a>
-          <a href="#" class="btn btn-secondary">Next <i class="fas fa-arrow-right"></i></a>
-        </div>
-      </div>
-    </main>
-  </div>
-</body>
+      </main>
+    </div>
+
+    <script src="../js/admin.js"></script>
+  </body>
 </html>
