@@ -1,6 +1,6 @@
 /* Admin Panel Styles */
 .admin-header {
-  background-color: #2c3e50;
+  background-color: white;
   color: white;
   padding: 15px 0;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -16,7 +16,7 @@
 .admin-logo {
   font-size: 24px;
   font-weight: 700;
-  color: white;
+  color: #3d7d2e;
 }
 
 .admin-logo span {
@@ -35,7 +35,7 @@
 }
 
 .admin-nav-links a {
-  color: white;
+  color: #3d7d2e;
   font-weight: 600;
   transition: color 0.3s ease;
 }
@@ -52,8 +52,8 @@
 
 .admin-sidebar {
   width: 250px;
-  background-color: #34495e;
-  color: white;
+  background-color: white;
+  color: #333;
   padding: 20px 0;
   transition: transform 0.3s ease;
 }
@@ -71,7 +71,7 @@
 .admin-sidebar-menu a {
   display: block;
   padding: 12px 20px;
-  color: #ecf0f1;
+  color: #333;
   text-decoration: none;
   transition: all 0.3s ease;
   font-size: 16px;
